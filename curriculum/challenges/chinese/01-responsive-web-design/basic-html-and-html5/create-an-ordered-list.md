@@ -4,13 +4,14 @@ title: 创建一个有序列表
 challengeType: 0
 videoUrl: 'https://scrimba.com/p/pVMPUv/cQ3B8TM'
 forumTopicId: 16824
+dashedName: create-an-ordered-list
 ---
 
 # --description--
 
-HTML 有一个特定的元素用于创建有序列表`ordered lists（缩写 ol）`。
+HTML 中有用于创建<dfn>有序列表</dfn>的特定元素。
 
-有序列表以`<ol>`开始，中间包含一个或多个`<li>`元素，最后以`</ol>`结尾。
+有序列表以 `<ol>` 开始，中间包含一个或多个 `<li>` 元素，最后以 `</ol>` 结束。
 
 例如:
 
@@ -21,51 +22,51 @@ HTML 有一个特定的元素用于创建有序列表`ordered lists（缩写 ol�
 </ol>
 ```
 
-将会创建一个包含加菲猫和哆啦A梦的有序列表。
+将会创建一个包含加菲猫和哆啦 A 梦的有序列表。
 
 # --instructions--
 
-创建一个有序列表，内容是猫咪最讨厌的三件东西，内容可以任意指定。
+请创建一个有序列表，内容是猫咪最讨厌的三样东西（`Top 3 things cats hate:`），内容可以任意指定。
 
 # --hints--
 
-页面应该有一个无序列表，内容是猫咪最喜欢的三件东西。
+应包含一个有序列表，内容是猫咪最讨厌的三样东西（`Top 3 things cats hate:`）。
 
 ```js
 assert(/Top 3 things cats hate:/i.test($('ol').prev().text()));
 ```
 
-页面应该有一个有序列表，内容是猫咪最讨厌的三件东西。
+应包含有一个无序列表，内容是猫咪最喜欢的东西（`Things cats love:`）。
 
 ```js
 assert(/Things cats love:/i.test($('ul').prev().text()));
 ```
 
-页面应该只有一个`ul`元素。
+页面应只包含一个 `ul` 元素。
 
 ```js
 assert.equal($('ul').length, 1);
 ```
 
-页面应该只有一个`ol`元素。
+页面应只包含一个 `ol` 元素。
 
 ```js
 assert.equal($('ol').length, 1);
 ```
 
-`ul`无序列表应该包含3个`li`条目。
+`ul` 无序列表中应包含 3 个 `li` 元素。
 
 ```js
 assert.equal($('ul li').length, 3);
 ```
 
-`ol`有序列表应该包含3个`li`元素。
+`ol` 有序列表应该包含 3 个 `li` 元素。
 
 ```js
 assert.equal($('ol li').length, 3);
 ```
 
-确保`ul`无序列表有结束标记。
+`ul` 无序列表应有结束标签。
 
 ```js
 assert(
@@ -74,7 +75,7 @@ assert(
 );
 ```
 
-确保`ol`有序列表有结束标记。
+`ol` 有序列表应有结束标签。
 
 ```js
 assert(
@@ -83,7 +84,7 @@ assert(
 );
 ```
 
-确保每个`li`条目都有结束标记。
+`li` 元素应有结束标签。
 
 ```js
 assert(
@@ -93,17 +94,64 @@ assert(
 );
 ```
 
-无序列表里的 `li` 元素不应该为空。
+无序列表里的 `li` 元素内容不应为空。
 
 ```js
-$('ul li').each((i, val) => assert(val.textContent.replace(/\s/g, '')));
+$('ul li').each((i, val) =>
+  assert(__helpers.removeWhiteSpace(val.textContent))
+);
 ```
 
-有序列表里的 `li` 元素不应该为空。
+有序列表里的 `li` 元素内容不应该为空。
 
 ```js
-$('ol li').each((i, val) => assert(!!val.textContent.replace(/\s/g, '')));
+$('ol li').each((i, val) =>
+  assert(!!__helpers.removeWhiteSpace(val.textContent))
+);
+```
+
+# --seed--
+
+## --seed-contents--
+
+```html
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+
+  <p>Things cats love:</p>
+  <ul>
+    <li>cat nip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+
+</main>
 ```
 
 # --solutions--
 
+```html
+<h2>CatPhotoApp</h2>
+<main>
+  <p>Click here to view more <a href="#">cat photos</a>.</p>
+
+  <a href="#"><img src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back."></a>
+
+  <p>Things cats love:</p>
+  <ul>
+    <li>cat nip</li>
+    <li>laser pointers</li>
+    <li>lasagna</li>
+  </ul>
+  <p>Top 3 things cats hate:</p>
+  <ol>
+    <li>hate 1</li>
+    <li>hate 2</li>
+    <li>hate 3</li>
+  </ol>
+</main>
+```

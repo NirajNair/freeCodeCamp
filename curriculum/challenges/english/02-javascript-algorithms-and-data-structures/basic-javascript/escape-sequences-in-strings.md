@@ -4,6 +4,7 @@ title: Escape Sequences in Strings
 challengeType: 1
 videoUrl: 'https://scrimba.com/c/cvmqRh6'
 forumTopicId: 17567
+dashedName: escape-sequences-in-strings
 ---
 
 # --description--
@@ -29,7 +30,7 @@ You will need to use escape sequences to insert special characters correctly. Yo
 
 Here is the text with the escape sequences written out.
 
-"FirstLine```newline``tab``backslash```SecondLine`newline`ThirdLine"
+"FirstLine<code>newline</code><code>tab</code><code>backslash</code>SecondLine`newline`ThirdLine"
 
 # --hints--
 
@@ -59,7 +60,7 @@ assert(/FirstLine\n/.test(myStr));
 assert(/\n\t/.test(myStr));
 ```
 
-`SecondLine` should be preceded by the backslash character `\`
+`SecondLine` should be preceded by the backslash character <code>\\</code>
 
 ```js
 assert(/\\SecondLine/.test(myStr));

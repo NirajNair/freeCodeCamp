@@ -4,6 +4,7 @@ title: Create a More Complex Shape Using CSS and HTML
 challengeType: 0
 videoUrl: 'https://scrimba.com/c/cPpz4fr'
 forumTopicId: 301050
+dashedName: create-a-more-complex-shape-using-css-and-html
 ---
 
 # --description--
@@ -38,8 +39,9 @@ Finally, in the `heart::before` selector, set its `content` property to an empty
 The `background-color` property of the `heart::after` selector should be pink.
 
 ```js
+const heartAfter = code.match(/\.heart::after\s*{[\s\S]+?[^\}]}/g)[0];
 assert(
-  code.match(/\.heart::after\s*?{\s*?background-color\s*?:\s*?pink\s*?;/gi)
+  /({|;)\s*background-color\s*:\s*pink\s*(;|})/g.test(heartAfter)
 );
 ```
 
